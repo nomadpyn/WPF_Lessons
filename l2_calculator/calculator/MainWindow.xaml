@@ -21,28 +21,28 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
-         </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
         <TextBox Name="resultBox" Grid.Column="0" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true"/>
-        <TextBox Name="currentBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true" FontSize="20" FontWeight="Bold"/>
-        <Button Name="buttonCE" Grid.Column="0" Grid.Row="2" Margin="2" FontSize="20">CE</Button>
-        <Button Name="buttonC" Grid.Column="1" Grid.Row="2" Margin="2" FontSize="20">C</Button>
-        <Button Name="buttonDelete" Grid.Column="2" Grid.Row="2" Margin="2" FontSize="20">Del</Button>
-        <Button Name="buttonDiv" Grid.Column="3" Grid.Row="2" Margin="2" FontSize="20">/</Button>
-        <Button Name="button7" Grid.Column="0" Grid.Row="3" Margin="2" FontSize="20">7</Button>
-        <Button Name="button8" Grid.Column="1" Grid.Row="3" Margin="2" FontSize="20">8</Button>
-        <Button Name="button9" Grid.Column="2" Grid.Row="3" Margin="2" FontSize="20">9</Button>
-        <Button Name="buttonMult" Grid.Column="3" Grid.Row="3" Margin="2" FontSize="20">*</Button>
-        <Button Name="button4" Grid.Column="0" Grid.Row="4" Margin="2" FontSize="20">4</Button>
-        <Button Name="button5" Grid.Column="1" Grid.Row="4" Margin="2" FontSize="20">5</Button>
-        <Button Name="button6" Grid.Column="2" Grid.Row="4" Margin="2" FontSize="20">6</Button>
-        <Button Name="buttonSub" Grid.Column="3" Grid.Row="4" Margin="2" FontSize="20">-</Button>
-        <Button Name="button1" Grid.Column="0" Grid.Row="5" Margin="2" FontSize="20">1</Button>
-        <Button Name="button2" Grid.Column="1" Grid.Row="5" Margin="2" FontSize="20">2</Button>
-        <Button Name="button3" Grid.Column="2" Grid.Row="5" Margin="2" FontSize="20">3</Button>
-        <Button Name="buttonAdd" Grid.Column="3" Grid.Row="5" Margin="2" FontSize="20">+</Button>
-        <Button Name="buttonPoint" Grid.Column="0" Grid.Row="6" Margin="2" FontSize="20">.</Button>
-        <Button Name="button0" Grid.Column="1" Grid.Row="6" Margin="2" FontSize="20">0</Button>
-        <Button Name="buttonResult" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6" Margin="2" FontSize="20">=</Button>
+        <TextBox Name="currentBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
+        <Button Name="buttonCE" Grid.Column="0" Grid.Row="2" Margin="2" FontSize="20" Click="buttonCE_Click">CE</Button>
+        <Button Name="buttonC" Grid.Column="1" Grid.Row="2" Margin="2" FontSize="20" Click="buttonC_Click">C</Button>
+        <Button Name="buttonDelete" Grid.Column="2" Grid.Row="2" Margin="2" FontSize="20" Click="buttonDelete_Click">Del</Button>
+        <Button Name="buttonDiv" Grid.Column="3" Grid.Row="2" Margin="2" FontSize="20" Click="buttonDiv_Click">/</Button>
+        <Button Name="button7" Grid.Column="0" Grid.Row="3" Margin="2" FontSize="20" Click="button7_Click">7</Button>
+        <Button Name="button8" Grid.Column="1" Grid.Row="3" Margin="2" FontSize="20" Click="button8_Click">8</Button>
+        <Button Name="button9" Grid.Column="2" Grid.Row="3" Margin="2,2,0,2" FontSize="20" HorizontalAlignment="Left" Width="96" Click="button9_Click">9</Button>
+        <Button Name="buttonMult" Grid.Column="3" Grid.Row="3" Margin="2,2,2,2" FontSize="20" Click="buttonMult_Click">*</Button>
+        <Button Name="button4" Grid.Column="0" Grid.Row="4" Margin="0,2,2,2" FontSize="20" HorizontalAlignment="Right" Width="96" Click="button4_Click">4</Button>
+        <Button Name="button5" Grid.Column="1" Grid.Row="4" Margin="2" FontSize="20" Click="button5_Click">5</Button>
+        <Button Name="button6" Grid.Column="2" Grid.Row="4" Margin="2" FontSize="20" Click="button6_Click">6</Button>
+        <Button Name="buttonSub" Grid.Column="3" Grid.Row="4" Margin="2" FontSize="20" Click="buttonSub_Click">-</Button>
+        <Button Name="button1" Grid.Column="0" Grid.Row="5" Margin="2" FontSize="20" Click="button1_Click">1</Button>
+        <Button Name="button2" Grid.Column="1" Grid.Row="5" Margin="2" FontSize="20" Click="button2_Click">2</Button>
+        <Button Name="button3" Grid.Column="2" Grid.Row="5" Margin="2" FontSize="20" Click="button3_Click">3</Button>
+        <Button Name="buttonAdd" Grid.Column="3" Grid.Row="5" Margin="2,2,2,2" FontSize="20" Click="buttonAdd_Click">+</Button>
+        <Button Name="buttonPoint" Grid.Column="0" Grid.Row="6" Margin="2" FontSize="20" Click="buttonPoint_Click">.</Button>
+        <Button Name="button0" Grid.Column="1" Grid.Row="6" Margin="2" FontSize="20" Click="button0_Click">0</Button>
+        <Button Name="buttonResult" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6" Margin="2" FontSize="20" Click="buttonResult_Click">=</Button>
 
     </Grid>
 </Window>
