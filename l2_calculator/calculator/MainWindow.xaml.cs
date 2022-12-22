@@ -22,6 +22,7 @@ namespace calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool resultdata = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -51,15 +52,15 @@ namespace calculator
                     addDigit(".");
             }
         }
-
         private void buttonDiv_Click(object sender, RoutedEventArgs e) { addSign("/"); }
         private void buttonMult_Click(object sender, RoutedEventArgs e) { addSign("*"); }
         private void buttonSub_Click(object sender, RoutedEventArgs e) { addSign("-"); }
         private void buttonAdd_Click(object sender, RoutedEventArgs e) { addSign("+"); }
         private void buttonResult_Click(object sender, RoutedEventArgs e)
-        {   
-            this.resultBox.Text = new DataTable().Compute(this.resultBox.Text, null).ToString();
-            this.currentBox.Text = null;            
+        {
+            this.resultBox.Text = new DataTable().Compute(toPoint(resultBox.Text), null).ToString();
+            this.currentBox.Text = null;
+            this.resultdata = true;
         }
         private void buttonCE_Click(object sender, RoutedEventArgs e)
         {
@@ -74,14 +75,19 @@ namespace calculator
         {
             if (this.currentBox.Text != "")
             {
-                int ind = this.currentBox.Text.Length - 1;
-                this.currentBox.Text = this.currentBox.Text.Remove(ind, 1);
-                int ind2 = this.resultBox.Text.Length - 1;
-                this.resultBox.Text = this.resultBox.Text.Remove(ind2, 1);
+                int ind_cur = this.currentBox.Text.Length - 1;
+                this.currentBox.Text = this.currentBox.Text.Remove(ind_cur, 1);
+                int ind_res = this.resultBox.Text.Length - 1;
+                this.resultBox.Text = this.resultBox.Text.Remove(ind_res, 1);
             }
         }
         private void addDigit(string digit)
         {
+            if (resultdata == true)
+            {
+                this.resultBox.Text = null; 
+                this.resultdata = false;
+            }
             this.currentBox.Text += digit;
             this.resultBox.Text += digit;
         }
@@ -92,7 +98,12 @@ namespace calculator
             {
                 this.resultBox.Text += sign;
                 this.currentBox.Text = null;
+                this.resultdata = false;
             }
+        }
+        private string toPoint(string data)
+        {
+            return data.Replace(",", ".");
         }
     }
 }
