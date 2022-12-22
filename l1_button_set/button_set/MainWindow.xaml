@@ -6,30 +6,30 @@
         xmlns:local="clr-namespace:button_set"
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="300">
-    <Grid>
+    <Grid Name="background">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Column="0" Grid.ColumnSpan="2">
-            <Button Name="buttonNavy" Margin="2" Foreground="Navy">Navy</Button>
-            <Button Name="buttonBlue" Margin="2" Foreground="Blue">Blue</Button>
-            <Button Name="buttonAqua" Margin="2" Foreground="Aqua">Aqua</Button>
-            <Button Name="buttonTeal" Margin="2" Foreground="Teal">Teal</Button>
-            <Button Name="buttonOlive" Margin="2" Foreground="Olive">Olive</Button>
-            <Button Name="buttonGreen" Margin="2" Foreground="Green">Green</Button>
-            <Button Name="buttonLime" Margin="2" Foreground="Lime">Lime</Button>            
-            <Button Name="buttonYellow" Margin="2" Foreground="Yellow">Yellow</Button>
-            <Button Name="buttonOrange" Margin="2" Foreground="Orange">Orange</Button>
-            <Button Name="buttonRed" Margin="2" Foreground="Red">Red</Button>
-            <Button Name="buttonMaroon" Margin="2" Foreground="Maroon">Maroon</Button>
-            <Button Name="buttonFuchsia" Margin="2" Foreground="Fuchsia">Fuchsia</Button>
-            <Button Name="buttonPurple" Margin="2" Foreground="Purple">Purple</Button>
-            <Button Name="buttonBlack" Margin="2" Foreground="Black">Black</Button>
-            <Button Name="buttonSilver" Margin="2" Foreground="Silver">Silver</Button>
-            <Button Name="buttonGray" Margin="2" Foreground="Gray">Gray</Button>
-            <Button Name="buttonWhite" Margin="2" Foreground="White">White</Button>
+            <Button Name="buttonNavy" Margin="2" Foreground="Navy" Click="buttonNavy_Click">Navy</Button>
+            <Button Name="buttonBlue" Margin="2" Foreground="Blue" Click="buttonBlue_Click">Blue</Button>
+            <Button Name="buttonAqua" Margin="2" Foreground="Aqua" Click="buttonAqua_Click">Aqua</Button>
+            <Button Name="buttonTeal" Margin="2" Foreground="Teal" Click="buttonTeal_Click">Teal</Button>
+            <Button Name="buttonOlive" Margin="2" Foreground="Olive" Click="buttonOlive_Click">Olive</Button>
+            <Button Name="buttonGreen" Margin="2" Foreground="Green" Click="buttonGreen_Click">Green</Button>
+            <Button Name="buttonLime" Margin="2" Foreground="Lime" Click="buttonLime_Click">Lime</Button>            
+            <Button Name="buttonYellow" Margin="2" Foreground="Yellow" Click="buttonYellow_Click">Yellow</Button>
+            <Button Name="buttonOrange" Margin="2" Foreground="Orange" Click="buttonOrange_Click">Orange</Button>
+            <Button Name="buttonRed" Margin="2" Foreground="Red" Click="buttonRed_Click">Red</Button>
+            <Button Name="buttonMaroon" Margin="2" Foreground="Maroon" Click="buttonMaroon_Click">Maroon</Button>
+            <Button Name="buttonFuchsia" Margin="2" Foreground="Fuchsia" Click="buttonFuchsia_Click">Fuchsia</Button>
+            <Button Name="buttonPurple" Margin="2" Foreground="Purple" Click="buttonPurple_Click">Purple</Button>
+            <Button Name="buttonBlack" Margin="2" Foreground="Black" Click="buttonBlack_Click">Black</Button>
+            <Button Name="buttonSilver" Margin="2" Foreground="Silver" Click="buttonSilver_Click">Silver</Button>
+            <Button Name="buttonGray" Margin="2" Foreground="Gray" Click="buttonGray_Click">Gray</Button>
+            <Button Name="buttonWhite" Margin="2" Foreground="White" Click="buttonWhite_Click">White</Button>
         </WrapPanel>
     </Grid>
 </Window>
