@@ -22,7 +22,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <TextBox Name="resultBox" Grid.Column="0" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true"/>
+        <TextBox Name="resultBox" Grid.Column="0" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true" TextAlignment="Right"/>
         <TextBox Name="currentBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Margin="2" IsReadOnly="true" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
         <Button Name="buttonCE" Grid.Column="0" Grid.Row="2" Margin="2" FontSize="20" Click="buttonCE_Click">CE</Button>
         <Button Name="buttonC" Grid.Column="1" Grid.Row="2" Margin="2" FontSize="20" Click="buttonC_Click">C</Button>
