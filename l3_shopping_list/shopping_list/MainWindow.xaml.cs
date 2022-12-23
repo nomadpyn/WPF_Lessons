@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Windows.Themes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -28,18 +29,27 @@ namespace shopping_list
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             fileIO= new FileIO(path);
             this.products =fileIO.loadFile();
-            this.productGrid.ItemsSource = this.products;
+            this.productGrid.ItemsSource = this.products;            
         }
-
         private void Window_Closing(object sender, CancelEventArgs e)
+        {            
+            fileIO.saveData(deleteBuy());            
+        }
+        private BindingList<Product> deleteBuy()
         {
-            
-            fileIO.saveData(this.products);
+            BindingList<Product> nw = new BindingList<Product>();
+            foreach(Product P in this.products)
+            {
+                if (P.IsBuy == false)
+                {
+                    nw.Add(P);
+                }
+            }
+            return nw;
         }
     }
 }

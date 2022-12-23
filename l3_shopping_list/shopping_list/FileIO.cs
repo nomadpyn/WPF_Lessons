@@ -33,10 +33,9 @@ namespace shopping_list
         }
         public void saveData(BindingList<Product> products)
         {
-            using (FileStream fs = new FileStream(this.Path, FileMode.OpenOrCreate))
-            {
-                
-                JsonSerializer.SerializeAsync<BindingList<Product>>(fs, products);
+            using (FileStream fs = new FileStream(this.Path, FileMode.Create))
+            {                
+                JsonSerializer.Serialize<BindingList<Product>>(fs, products);
             }
         }
     }
