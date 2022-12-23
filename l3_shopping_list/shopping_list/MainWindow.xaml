@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shopping_list"
         mc:Ignorable="d"
-        Title="Список покупок" Height="300" Width="500">
-    <Grid>     
-        <DataGrid Name ="productGrid" Margin="2" AutoGenerateColumns="False">
+        Title="Список покупок" Height="300" Width="500" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="453*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name ="productGrid" Margin="2,2,2,2" AutoGenerateColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Товар" Width="7*" />
                 <DataGridTextColumn Binding="{Binding Path=Count}" Header="Кол-во" Width="*" />

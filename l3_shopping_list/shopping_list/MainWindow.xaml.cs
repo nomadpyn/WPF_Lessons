@@ -22,12 +22,24 @@ namespace shopping_list
     public partial class MainWindow : Window
     {
         private BindingList<Product> products;
+        private readonly string path = "products.json";
+        private FileIO fileIO;
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            this.products = new BindingList<Product>();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fileIO= new FileIO(path);
+            this.products =fileIO.loadFile();
             this.productGrid.ItemsSource = this.products;
-        }               
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            
+            fileIO.saveData(this.products);
+        }
     }
 }
