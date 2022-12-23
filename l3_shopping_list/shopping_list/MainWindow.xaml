@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Список покупок" Height="300" Width="500">
     <Grid>     
-        <DataGrid Margin="2">
+        <DataGrid Name ="productGrid" Margin="2" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Товар" Width="7*"/>
-                <DataGridTextColumn Header="Кол-во" Width="*"/>
-                <DataGridCheckBoxColumn Header="Куплен" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Товар" Width="7*" />
+                <DataGridTextColumn Binding="{Binding Path=Count}" Header="Кол-во" Width="*" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsBuy}" Header="Куплен" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

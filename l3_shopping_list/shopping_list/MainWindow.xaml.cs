@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,16 @@ using System.Windows.Shapes;
 
 namespace shopping_list
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
+        private BindingList<Product> products;
         public MainWindow()
         {
             InitializeComponent();
+
+            this.products = new BindingList<Product>();
+            this.productGrid.ItemsSource = this.products;
         }               
     }
 }
