@@ -12,37 +12,23 @@
                 <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="20" >Форма регистрации</TextBlock>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите логин</TextBlock>
                 <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <TextBox.ToolTip>
-                        <ToolTip> Не менее 4 символов
-                        </ToolTip>
-                    </TextBox.ToolTip>
+                    <TextBox.ToolTip><ToolTip>Не менее 4 символов</ToolTip></TextBox.ToolTip>
                 </TextBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите пароль</TextBlock>
                 <PasswordBox Name="passwordBox1" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <PasswordBox.ToolTip>
-                        <ToolTip> Не менее 6 символов</ToolTip>
-                    </PasswordBox.ToolTip>
+                    <PasswordBox.ToolTip><ToolTip>Не менее 6 символов</ToolTip></PasswordBox.ToolTip>
                 </PasswordBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Повторите пароль</TextBlock>
                 <PasswordBox Name="passwordBox2" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <PasswordBox.ToolTip>
-                        <ToolTip>Пароли должны совпадать</ToolTip>
-                    </PasswordBox.ToolTip>
+                    <PasswordBox.ToolTip><ToolTip>Пароли должны совпадать</ToolTip></PasswordBox.ToolTip>
                 </PasswordBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите e-mail</TextBlock>
                 <TextBox Name="emailBox" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <TextBox.ToolTip>
-                        <ToolTip>Только в домене .ru
-                        </ToolTip>
-                    </TextBox.ToolTip>
+                    <TextBox.ToolTip><ToolTip>Только в домене .ru</ToolTip></TextBox.ToolTip>
                 </TextBox>
-                <TextBlock Margin="10"/>
-                <Button Name="regButton" Width="200">Зарегистироваться
-                    <Button.ToolTip>
-                        <ToolTip> Нажмите, чтобы зарегистироваться</ToolTip>
-                    </Button.ToolTip></Button>
-                
-
+                <TextBlock/>
+                <Button Name="regButton" Width="200" Click="regButton_Click">Зарегистироваться
+                    <Button.ToolTip><ToolTip> Нажмите, чтобы зарегистироваться</ToolTip></Button.ToolTip></Button>
             </StackPanel>
         </Border>
     </Grid>

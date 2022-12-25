@@ -4,3 +4,4 @@
 *.lock
 l4_reg_window/.vs/reg_window/v17/.futdcache.v2
 l4_reg_window/.vs/reg_window/v17/.suo
+*.v2
