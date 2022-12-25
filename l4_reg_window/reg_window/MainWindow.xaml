@@ -5,30 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:reg_window"
         mc:Ignorable="d"
-        Title="Регистрация" Height="400" Width="600">
+        Title="Регистрация" Height="400" Width="600" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid Background="LightSeaGreen">
-        <Border Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="538*"/>
+        </Grid.ColumnDefinitions>
+        <Border Margin="15,0,15,0" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" Grid.ColumnSpan="3">
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="20" >Форма регистрации</TextBlock>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите логин</TextBlock>
                 <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <TextBox.ToolTip><ToolTip>Не менее 4 символов</ToolTip></TextBox.ToolTip>
+                    <TextBox.ToolTip>
+                        <ToolTip>Не менее 4 символов</ToolTip>
+                    </TextBox.ToolTip>
                 </TextBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите пароль</TextBlock>
                 <PasswordBox Name="passwordBox1" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <PasswordBox.ToolTip><ToolTip>Не менее 6 символов</ToolTip></PasswordBox.ToolTip>
+                    <PasswordBox.ToolTip>
+                        <ToolTip>Не менее 6 символов</ToolTip>
+                    </PasswordBox.ToolTip>
                 </PasswordBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Повторите пароль</TextBlock>
                 <PasswordBox Name="passwordBox2" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <PasswordBox.ToolTip><ToolTip>Пароли должны совпадать</ToolTip></PasswordBox.ToolTip>
+                    <PasswordBox.ToolTip>
+                        <ToolTip>Пароли должны совпадать</ToolTip>
+                    </PasswordBox.ToolTip>
                 </PasswordBox>
                 <TextBlock HorizontalAlignment="Center" Margin="2" >Введите e-mail</TextBlock>
                 <TextBox Name="emailBox" HorizontalAlignment="Center" Margin="2" Width="200">
-                    <TextBox.ToolTip><ToolTip>Только в домене .ru</ToolTip></TextBox.ToolTip>
+                    <TextBox.ToolTip>
+                        <ToolTip>Только в домене .ru</ToolTip>
+                    </TextBox.ToolTip>
                 </TextBox>
                 <TextBlock/>
                 <Button Name="regButton" Width="200" Click="regButton_Click">Зарегистироваться
-                    <Button.ToolTip><ToolTip> Нажмите, чтобы зарегистироваться</ToolTip></Button.ToolTip></Button>
+                    <Button.ToolTip>
+                        <ToolTip>Нажмите, чтобы зарегистироваться</ToolTip>
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
         </Border>
     </Grid>

@@ -20,7 +20,7 @@ namespace reg_window
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<User> users = new List<User>();
+        List<User> users;
         public MainWindow()
         {
             InitializeComponent();
@@ -109,6 +109,16 @@ namespace reg_window
             passwordBox1.Password = null;
             passwordBox2.Password = null;
             emailBox.Text = null;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            users = FileIO.LoadFile();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            FileIO.SaveFile(users);
         }
     }
 }
