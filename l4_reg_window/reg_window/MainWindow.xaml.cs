@@ -20,6 +20,7 @@ namespace reg_window
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<User> users = new List<User>();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,28 +36,39 @@ namespace reg_window
             }
             else if (passwordBox1.Password.Length < 6)
             {
-                byDefault(loginBox, 'l');
+                byDefault(ref loginBox, 'l');
                 passwordBox1.ToolTip = "Слишком короткий пароль";
                 passwordBox1.Background = Brushes.IndianRed;
             }
             else if(passwordBox1.Password != passwordBox2.Password)
             {
-                byDefault(passwordBox1, 1);
+                byDefault(ref passwordBox1, 1);
                 passwordBox2.ToolTip = "Пароли не совпадают";
                 passwordBox2.Background = Brushes.IndianRed;
             }
             else if(!emailBox.Text.Contains("@") || !emailBox.Text.Contains(".ru"))
             {
-                byDefault(passwordBox2, 2);
+                byDefault(ref passwordBox2, 2);
                 emailBox.ToolTip = "E-Mail введен неправильно";
                 emailBox.Background = Brushes.IndianRed;
             }
             else
             {
-                byDefault(emailBox, 'e');
+                byDefault(ref emailBox, 'e');
+                if (checkLogin())
+                {
+                    users.Add(new User(loginBox.Text, passwordBox2.Password, emailBox.Text));
+                    MessageBox.Show("Вы успешно зарегистрированы", "Поздравляем");
+                    clearForm();
+
+                }
+                else
+                {
+                    MessageBox.Show("Такой пользователь уже существует", "Ошибка");
+                }
             }
         }
-        private void byDefault(TextBox obj, char name)
+        private void byDefault(ref TextBox obj, char name)
         {
             if (name == 'l')
             {
@@ -68,7 +80,7 @@ namespace reg_window
             }
             obj.Background = Brushes.Transparent;
         }
-        private void byDefault(PasswordBox obj, byte name)
+        private void byDefault(ref PasswordBox obj, byte name)
         {
             if (name == 1)
             {
@@ -79,6 +91,24 @@ namespace reg_window
                 obj.ToolTip = "Пароли должны совпадать";
             }
             obj.Background = Brushes.Transparent;
+        }
+        private bool checkLogin()
+        {
+            foreach(User u in this.users)
+            {
+                if (u.Name == loginBox.Text)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void clearForm()
+        {
+            loginBox.Text = null;
+            passwordBox1.Password = null;
+            passwordBox2.Password = null;
+            emailBox.Text = null;
         }
     }
 }
