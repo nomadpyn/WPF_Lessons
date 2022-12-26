@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,15 +30,17 @@ namespace quiz
             new QuizData("Какого цвета у Мардж машина?","Красная","Синяя","Белая","Желтая"),
             new QuizData("Кто средний по возрасту из Симпсонов","Барт","Мэгги","Лиза","Гомер")
         };
+        string[] answers = new string[6]; 
         public MainWindow()
         {
             InitializeComponent();
-            for (int i = 0; i < 6; i++)
+
+            for (byte i = 0; i < 6; i++)
             {
                 addDataToTab(i);
             }
         }
-        private void addDataToTab(int index)
+        private void addDataToTab(byte index)
         {
             object wantedTextBlock = tabs.FindName($"tab{index+1}_quest");
             if(wantedTextBlock is TextBlock)
@@ -60,5 +63,152 @@ namespace quiz
             }
         }
 
+        private void addProgress(byte tab, byte choise)
+        {
+            for (int i = 1; i <= 4; i++)
+            {
+                object wantedButton = tabs.FindName($"tab{tab}_answer{i}");
+                if (wantedButton is Button)
+                {
+                    Button wantedChild = wantedButton as Button;
+                    if (i == choise)
+                    {
+                        answers[choise-1] = wantedChild.Content.ToString();
+                        wantedChild.Background = Brushes.LightSlateGray;
+                        continue;
+                    }
+
+                    wantedChild.IsEnabled = false;
+                }
+            }
+            progress.Value++;
+        }
+        private void tab1_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(1, 1);
+        }
+
+        private void tab1_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(1, 2);
+        }
+
+        private void tab1_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(1, 3);
+        }
+
+        private void tab1_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(1, 4);
+        }
+
+        private void tab2_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(2, 1);
+        }
+
+        private void tab2_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(2, 2);
+        }
+
+        private void tab2_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(2, 3);
+        }
+
+        private void tab2_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(2, 4);
+        }
+
+        private void tab3_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(3, 1);
+        }
+
+        private void tab3_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(3, 2);
+        }
+
+        private void tab3_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(3, 3);
+        }
+
+        private void tab3_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(3,4);
+        }
+
+        private void tab4_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(4, 1);
+        }
+
+        private void tab4_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(4, 2);
+        }
+
+        private void tab4_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(4, 3);
+        }
+
+        private void tab4_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(4, 4);
+        }
+
+        private void tab5_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(5, 1);
+        }
+
+        private void tab5_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(5, 2);
+        }
+
+        private void tab5_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(5, 3);
+        }
+
+        private void tab5_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(5, 4);
+        }
+
+        private void tab6_answer1_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(6, 1);
+        }
+
+        private void tab6_answer2_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(6, 2);
+        }
+
+        private void tab6_answer3_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(6, 3);
+        }
+
+        private void tab6_answer4_Click(object sender, RoutedEventArgs e)
+        {
+            addProgress(6, 4);
+        }
+
+        private void progress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (progress.Value == 6)
+            {
+                EndAnswer.IsEnabled = true;
+            }
+        }
     }
 }
