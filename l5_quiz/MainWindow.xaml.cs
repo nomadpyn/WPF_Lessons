@@ -73,7 +73,7 @@ namespace quiz
                     Button wantedChild = wantedButton as Button;
                     if (i == choise)
                     {
-                        answers[choise-1] = wantedChild.Content.ToString();
+                        answers[tab-1] = wantedChild.Content.ToString();
                         wantedChild.Background = Brushes.LightSlateGray;
                         continue;
                     }
@@ -209,6 +209,28 @@ namespace quiz
             {
                 EndAnswer.IsEnabled = true;
             }
+        }
+
+        private void EndAnswer_Click(object sender, RoutedEventArgs e)
+        {
+             MessageBox.Show(Points());
+            this.Close();
+        }
+        private string Points()
+        {
+            byte point = 0;
+            for(byte i = 0; i < 6; i++)
+            {
+                if (answers[i] == data[i].Answers[0])
+                    point++;
+            }
+            if (point == 5 || point == 6)
+                return $"Вы отлично знаете!\n {point} из 6";
+            else if (point == 3 || point == 4)
+                return $"Вы хорошо знаете!\n {point} из 6";
+            else 
+                return $"Вы плохо знаете!\n {point} из 6";
+
         }
     }
 }

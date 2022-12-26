@@ -144,6 +144,6 @@
             </TabItem>
         </TabControl>
         <ProgressBar Name="progress" Grid.Column="0" Grid.Row="1" Margin="5" Minimum="0" Maximum="6" ValueChanged="progress_ValueChanged"></ProgressBar>
-        <Button Name="EndAnswer" Grid.Column="1" Grid.Row="1" Margin="5" IsEnabled="False">Закончить</Button>
+        <Button Name="EndAnswer" Grid.Column="1" Grid.Row="1" Margin="5" IsEnabled="False" Click="EndAnswer_Click">Закончить</Button>
     </Grid>
 </Window>
