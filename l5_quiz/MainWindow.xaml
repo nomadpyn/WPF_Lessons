@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:quiz"
         mc:Ignorable="d"
         Title="Qiuz" Height="400" Width="420" ResizeMode="NoResize">
-    <Grid Background="LightSlateGray">
+    <Grid Name="dataGrid" Background="LightSlateGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -15,7 +15,7 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TabControl Height="280" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="11">
+        <TabControl Name ="tabs" Height="280" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="11">
             <TabItem Name="Tab1" Header="Вопрос 1">
                 <Border Background="White" >
                     <Grid>
@@ -28,7 +28,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab1_quest"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" 
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab1_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab1_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab1_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -48,7 +49,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab2_quest" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab2_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab2_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab2_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -68,7 +70,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab3_quest" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab3_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab3_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab3_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -88,7 +91,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab4_quest" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab4_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab4_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab4_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -108,7 +112,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab5_quest" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab5_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab5_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab5_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -128,7 +133,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+                        <TextBlock Name="tab6_quest"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                                   HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                         <Button Name="tab6_answer1" Grid.Column="0" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab6_answer2" Grid.Column="1" Grid.Row="1" Margin="5"></Button>
                         <Button Name="tab6_answer3" Grid.Column="0" Grid.Row="2" Margin="5"></Button>
@@ -138,7 +144,7 @@
             </TabItem>
             </TabControl>
         
-            <ProgressBar Grid.Column="0" Grid.Row="1" Margin="5"></ProgressBar>
+            <ProgressBar Name="progress" Grid.Column="0" Grid.Row="1" Margin="5"></ProgressBar>
         <Button Name="EndAnswer" Grid.Column="1" Grid.Row="1" Margin="5" IsEnabled="False">Закончить</Button>
     </Grid>
 </Window>
