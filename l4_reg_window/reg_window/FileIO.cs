@@ -11,8 +11,10 @@ using System.Xml.Serialization;
 
 namespace reg_window
 {
+// статический класс для взаимодействия с данными в xml
     public static class FileIO
     {
+// метод сохранения данных в xml
         public static void SaveFile(List<User> data)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<User>));
@@ -28,6 +30,7 @@ namespace reg_window
                 MessageBox.Show(ex.Message);
             }
         }
+// метод возвращает список пользователей, если файла нет, то пустой список
         public static List<User> LoadFile()
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<User>));

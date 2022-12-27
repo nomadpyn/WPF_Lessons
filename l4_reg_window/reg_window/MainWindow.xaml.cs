@@ -20,12 +20,13 @@ namespace reg_window
     /// </summary>
     public partial class MainWindow : Window
     {
+// список пользователей
         List<User> users;
         public MainWindow()
         {
             InitializeComponent();
         }
-
+// обработка нажатия кпопки Зарегистрироваться, проверка на правильность ввода данных, и вывод ошибок пользователю
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -68,6 +69,7 @@ namespace reg_window
                 }
             }
         }
+// метод возвращающий TextBox в форме к первоначальному виду
         private void byDefault(ref TextBox obj, char name)
         {
             if (name == 'l')
@@ -80,6 +82,7 @@ namespace reg_window
             }
             obj.Background = Brushes.Transparent;
         }
+// метод возвращающий PasswordBox в форме к первоначальному виду
         private void byDefault(ref PasswordBox obj, byte name)
         {
             if (name == 1)
@@ -92,6 +95,7 @@ namespace reg_window
             }
             obj.Background = Brushes.Transparent;
         }
+// метод проверки на существование пользователя с таким именем
         private bool checkLogin()
         {
             foreach(User u in this.users)
@@ -103,6 +107,7 @@ namespace reg_window
             }
             return true;
         }
+// метод очистки данных в форме
         private void clearForm()
         {
             loginBox.Text = null;
@@ -110,12 +115,12 @@ namespace reg_window
             passwordBox2.Password = null;
             emailBox.Text = null;
         }
-
+// загрузка списка пользователей при старте программы
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             users = FileIO.LoadFile();
         }
-
+// сохранения списка пользователей при закрытии программы
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             FileIO.SaveFile(users);

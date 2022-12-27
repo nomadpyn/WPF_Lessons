@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace shopping_list
 {
+// класс Продукт для сохранения с полями Имя, Количество и Куплен да/нет
     public class Product
     {
         public string? Name { get; set; }

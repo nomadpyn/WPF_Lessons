@@ -11,13 +11,17 @@ using System.Threading.Tasks;
 
 namespace shopping_list
 {
+// класс для работы с сохранением данных в файл json
     internal class FileIO
     {
+// поле только для чтения для задания пути сохранения
         private readonly string Path;
+// конструктор объекта 
         public FileIO(string path)
         {
             this.Path = path;
         }
+// метод возвращает BindingList с данными при загрузке, пустой если файла не существует
         public BindingList<Product> loadFile()
         {
             var fileExist = File.Exists(this.Path);
@@ -31,6 +35,7 @@ namespace shopping_list
                 return JsonSerializer.Deserialize<BindingList<Product>>(fs);
             }
         }
+// метод сохраняет данные в json
         public void saveData(BindingList<Product> products)
         {
             using (FileStream fs = new FileStream(this.Path, FileMode.Create))
