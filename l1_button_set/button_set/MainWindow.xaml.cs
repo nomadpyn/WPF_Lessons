@@ -24,6 +24,7 @@ namespace button_set
         {
             InitializeComponent();
         }
+// при нажатии на кнопку c именем цвета в заголовке программы будет название этого цвета, а фон окрасится этим цветом 
         private void buttonNavy_Click(object sender, RoutedEventArgs e)
         {
             Title = "Navy";
