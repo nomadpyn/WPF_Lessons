@@ -21,6 +21,7 @@ namespace quiz
     /// </summary>
     public partial class MainWindow : Window
     {
+// массив вопросов
         List<QuizData> data = new List<QuizData>
         {
             new QuizData("Кто глава дома Симпсонов?","Гомер","Барни","Мо","Мэгги"),
@@ -30,16 +31,18 @@ namespace quiz
             new QuizData("Какого цвета у Мардж машина?","Красная","Синяя","Белая","Желтая"),
             new QuizData("Кто средний по возрасту из Симпсонов","Барт","Мэгги","Лиза","Гомер")
         };
+// масстив для сохранения выбранных ответов
         string[] answers = new string[6]; 
         public MainWindow()
         {
             InitializeComponent();
-
+// передача данных в элементы формы
             for (byte i = 0; i < 6; i++)
             {
                 addDataToTab(i);
             }
         }
+// метод добавления данных в элементы формы
         private void addDataToTab(byte index)
         {
             object wantedTextBlock = tabs.FindName($"tab{index+1}_quest");
@@ -62,147 +65,122 @@ namespace quiz
                 }
             }
         }
-
+// метод добавления прогресса в шкалу и блокировка кнопок после ответа
         private void addProgress(byte tab, byte choise)
         {
             for (int i = 1; i <= 4; i++)
             {
-                object wantedButton = tabs.FindName($"tab{tab}_answer{i}");
-                if (wantedButton is Button)
-                {
-                    Button wantedChild = wantedButton as Button;
-                    if (i == choise)
+                Button wantedButton = (Button)tabs.FindName($"tab{tab}_answer{i}");
+                if (!wantedButton.IsEnabled || wantedButton.Background == Brushes.LightSlateGray)
+                    break;
+                    if (i == choise )
                     {
-                        answers[tab-1] = wantedChild.Content.ToString();
-                        wantedChild.Background = Brushes.LightSlateGray;
+                        answers[tab - 1] = wantedButton.Content.ToString();
+                        wantedButton.Background = Brushes.LightSlateGray;
+                        progress.Value++;
                         continue;
                     }
-
-                    wantedChild.IsEnabled = false;
-                }
-            }
-            progress.Value++;
+                wantedButton.IsEnabled = false;
+            } 
         }
+// обработка нажатия кнопок всех вкладок методом addProgress, передавая туда номер вкладки и номер кнопки
         private void tab1_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(1, 1);
         }
-
         private void tab1_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(1, 2);
         }
-
         private void tab1_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(1, 3);
         }
-
         private void tab1_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(1, 4);
         }
-
         private void tab2_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(2, 1);
         }
-
         private void tab2_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(2, 2);
         }
-
         private void tab2_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(2, 3);
         }
-
         private void tab2_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(2, 4);
         }
-
         private void tab3_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(3, 1);
         }
-
         private void tab3_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(3, 2);
         }
-
         private void tab3_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(3, 3);
         }
-
         private void tab3_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(3,4);
         }
-
         private void tab4_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(4, 1);
         }
-
         private void tab4_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(4, 2);
         }
-
         private void tab4_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(4, 3);
         }
-
         private void tab4_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(4, 4);
         }
-
         private void tab5_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(5, 1);
         }
-
         private void tab5_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(5, 2);
         }
-
         private void tab5_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(5, 3);
         }
-
         private void tab5_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(5, 4);
         }
-
         private void tab6_answer1_Click(object sender, RoutedEventArgs e)
         {
             addProgress(6, 1);
         }
-
         private void tab6_answer2_Click(object sender, RoutedEventArgs e)
         {
             addProgress(6, 2);
         }
-
         private void tab6_answer3_Click(object sender, RoutedEventArgs e)
         {
             addProgress(6, 3);
         }
-
         private void tab6_answer4_Click(object sender, RoutedEventArgs e)
         {
             addProgress(6, 4);
         }
-
+// при заполнения шкалы прогресса открывается кнопка Закончить
         private void progress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (progress.Value == 6)
@@ -210,12 +188,13 @@ namespace quiz
                 EndAnswer.IsEnabled = true;
             }
         }
-
+// вывод сообщения о результатах при нажатии кнопки
         private void EndAnswer_Click(object sender, RoutedEventArgs e)
         {
-             MessageBox.Show(Points());
+            MessageBox.Show(Points());
             this.Close();
         }
+// метод, возвращает некоторое сообщение в зависимости от результат
         private string Points()
         {
             byte point = 0;
